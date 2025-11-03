@@ -236,7 +236,7 @@ class QwenVLAgent(AbstractAgent):
             coordinates = [tuple(map(float, re.findall(r'-?\d+\.\d+', coord))) for coord in coordinates_matches]
             coordinates_array = np.array(coordinates)
         else:
-            print("error",answer)
+            print("error",output_text)
             return  {"trajectory": np.zeros((1, self._trajectory_sampling.num_poses, 3))}
 
         return {"trajectory": coordinates_array.reshape(-1, self._trajectory_sampling.num_poses, 3)}
